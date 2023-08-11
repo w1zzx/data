@@ -1,5 +1,5 @@
 trace_remove(){
-	#hurry up hurrry;
+	#hurry up hurrry stop
     history -d $(history  | tail -1 |  awk '{print $1}');
     history -w ;
 };
